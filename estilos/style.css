@@ -15,38 +15,46 @@
    Azul-escuro - #0B0513
 */ 
 
+@font-face {
+  font-family: "BarlowArc";
+  src: url(../fontes/Barlow_embark/Barlow-Medium.ttf);
+}
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
 }
 :root{
-  --fundo-principal: #F2E6D8;
-  --texto: #0B0513;
+  --fundo-principal: #ece2d0;
+  --texto: #120918;
   --texto-inverso: #ffffff;
-  --destaque: #0077ff;
+  --destaque: #120918;
   --destaque-inverso:#66bbff;
   --fundo-card:#ffffff;
   --borda: #04a4b9;
   --barra-0-50: #F20732;
-  --barra-51-70: #F2A81D;
+  --barra-51-70: #f1aa1c;
   --barra-71-85: #22F26B;
   --barra-86-100: #66FAFD;
 }
 
 body.escuro{
-  --fundo-principal: #222222;
+  --fundo-principal: #120918;
   --texto: #e0e0e0; 
-  --texto-inverso:#333333;
-  --destaque:#ff5522;
+  --texto-inverso:#ffffff;
+  --destaque:#120918;
   --destaque-inverso:#a73917;
-  --fundo-card:#444444;
+  --fundo-card:#120918;
+  background-image: url("../imagens/Fundo-arc-4k-with-no-logo.png");
 }
 
 body{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'BarlowArc',sans-serif;
   line-height: 1.5em;
-  background-color: var(--fundo-principal);
+  background-image: url("../imagens/fundo-arc-claro2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--texto);
   transition: background-color 1s, color 1s;
 }
@@ -72,19 +80,24 @@ header{
   text-decoration: none;
   color: var(--texto-inverso);
   font-weight:600;
-  padding: 12px 15px;
+  padding: 10px 15px;
   border-radius: 5px;
  }
 
  nav#menu a:hover{
-  color: rgb(207, 206, 206);
+  color: var(--texto);
+  background-color: var(--barra-51-70);
+  border-radius: 50px;
   transition: background-color 0.5s;
+
  }
 
  main{
   display: grid;
-  grid-template-columns: auto 90vw;
-  
+  grid-template-columns: auto 90vw auto;
+  gap: 20px;
+  margin-top: 20px;
+
   
  }
  section#ficha{
@@ -92,8 +105,8 @@ header{
   padding: 20px;
   border-radius: 10px;
   grid-column: 2;
-  margin: 10px;
   border: 1px solid var(--borda);
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.281);
 
  }
  section#ficha img.foto{
@@ -102,21 +115,20 @@ header{
   object-fit: cover;
   overflow: hidden;
   border-radius: 50%;
-  border: 5px solid var(--fundo-card);
-  outline: 5px solid black;
+  border: 3px solid var(--fundo-card);
+  outline: 5px solid var(--destaque);
   display: block;
   margin: auto;
   margin-bottom: 15px;
  }
 
  section#ficha h1{
-  color: var(--destaque);
+  color: var(--texto);
   margin: 15px;
   font-size: 1.6em;
   text-align: left;
  }
  section#ficha p{
-  text-indent: 25px;
   text-align:justify;
   hyphens: auto;
   text-justify: inter-word;
@@ -142,18 +154,23 @@ section#detalhes{
  article{
   background-color: var(--fundo-card);
   padding: 20px;
-  margin-right: 15px;
-  margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
   border: 1px solid var(--borda);
+  box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.288);
  }
 
 article h2{
-  color:var(--texto);
-  margin-bottom: 20px;
+  color:var( --destaque);
+  margin-bottom: 25px;
 }
 
+article#skills h2{
+  background-color: var(--barra-51-70);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 30px;
+}
 #skill-container{
   display: grid;
   grid-template-columns: 1fr;
@@ -168,22 +185,21 @@ article h2{
 }
 #skill-container .nome{
   font-weight: bold;
-  color: var(--texto)
-  ;
+  color: var(--texto);
 }
 #skill-container .porcent{
   font-weight: bold;
-  color: var(--destaque);
+  color: var(--texto);
 }
 #skill-container .barra{
   width: 100%;
   height: 8px;
   border-radius: 4px;
-  background-color: var(--fundo-principal);
+  background-color: rgb(139, 139, 126);
 }
 #skill-container .progresso{
   height: 100%;
-  background-color: var(--destaque-inverso);
+  background-color: var(--texto);
   border-radius: 4px;
 }
 
@@ -192,12 +208,17 @@ article h2{
   flex-direction: column-reverse;
   gap: 20px;
 }
-
+article#formacao h2{
+  background-color: var(--barra-51-70);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 30px;
+}
 #formacao-container .curso{
   background-color: var(--fundo-card);
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.288);
+  box-shadow: 3px 3px 13px 3px rgba(0, 0, 0, 0.288);
   border-radius: 8px;
-  border-left: 5px solid var(--destaque-inverso);
+  border-left: 5px solid var(--destaque);
   padding-left: 15px;
   padding: 10px;
   transition: border-width 0.5s, border-color 0.5s;
@@ -205,7 +226,7 @@ article h2{
 }
 #formacao-container .curso:hover{
   border-left-width: 15px;
-  border-color: var(--destaque);
+  border-color: var(--barra-71-85);
   cursor: pointer;
 }
 
@@ -216,7 +237,7 @@ article h2{
 }
 
 #formacao-container .instituicao{
-  color: var(--destaque-inverso);
+  color: var(--texto);
   font-size: 1.1em;
 }
 
@@ -225,20 +246,26 @@ article h2{
   flex-direction: column-reverse;
   gap: 20px;
 }
+article#projetos h2{
+  background-color: var(--barra-51-70);
+  display: inline-block;
+  padding: 10px;
+  border-radius: 30px;
+}
 #projeto-container .projeto{
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: var(--fundo-card);
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.288);
+  box-shadow: 3px 3px 13px 3px rgba(0, 0, 0, 0.288);
   padding: 10px;
-  border-left: 5px solid var(--destaque-inverso);
+  border-left: 5px solid var(--destaque);
   transition: border-color 0.5s, border-width 0.5s;
   border-radius: 15px;
 }
 
 #projeto-container .projeto:hover{
-  border-color: var(--destaque);
+  border-color: var(--barra-71-85);
   border-left-width:15px;
   cursor: pointer;
 }
@@ -259,13 +286,13 @@ footer{
 
 @media screen and (min-width: 768px){
   main{
-    grid-template-columns: auto 300px 1fr auto;
+    grid-template-columns: auto 400px 1fr auto;
 }
   section#ficha{
     grid-column: 2 / 3;
     height: fit-content;
     position: sticky;
-    top: 83px;
+    top: 65px;
 }
   section#detalhes{
     grid-column: 3 / 4;
