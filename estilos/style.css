@@ -116,7 +116,7 @@ header{
   overflow: hidden;
   border-radius: 50%;
   border: 3px solid var(--fundo-card);
-  outline: 5px solid var(--destaque);
+  outline: 5px solid var(--texto);
   display: block;
   margin: auto;
   margin-bottom: 15px;
